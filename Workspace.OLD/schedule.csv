@@ -1,0 +1,62 @@
+Boni Bruno,IBM,BigInsights 4.0,B. Bruno,Isilon,VS,9/18/2015,Completed,Green,Starter Kit Complete and Published (Published this week on EMC Community).  ISV Registry Updated.  
+Boni Bruno,X15,X15,B. Bruno,Isilon,CC,10/16/2015,Completed,Green,"Validation Complete, ISV Registry Updated.  "
+Boni Bruno,Blue Data,Blue Data,B. Bruno,Isilon,VS,11/30/2015,Completed,Green,Validation Complete.
+Boni Bruno,Hortonworks,HDP 2.2,B. Bruno,Isilon,VS,2/28/2016,Started,Green,Extending this into a HADOOP STARTER KIT to support VS & SAI’s HWX initiatives.
+Boni Bruno,IBM,BigInsights 4.1,B. Bruno,Isilon,VS,3/30/2016,Not Started,Green, This is next on the list after HDP 2.2 validation is complete.
+Boni Bruno,Splunk,Hunk,B. Bruno,Isilon,VS,4/31/16,Not Started,Green,
+Boni Bruno,RSA,RSA,B. Bruno,Isilon,CC,Not Planned,Not Started,Green,
+Brent Cowing,Honeywell,Maxpro VMS,Brent,Isilon,CC,9/30/2015,Completed,Green,Complete
+Brent Cowing,Honeywell,Maxpro DVM,Core VS Lab,Isilon,VS,2/15/2016,In Process,Green,
+Brent Cowing,Vocord,Tahion,Superna,Isilon,VS,1/31/2016,In Process,Green,"Testing Complete, reviewing documentation"
+Brent Cowing,SeeTec,Cayuga,Superna,Isilon,VS,1/31/2016,In Process,Green,"Testing Complete, reviewing documentation"
+Brent Cowing,Salient,CompleteView,Superna,Isilon,PS,1/31/2016,In Process,Green,"Testing Complete, reviewing documentation"
+Brent Cowing,Genetec,SecurityCenter 5.3,Core VS Lab,Isilon,VS,4/30/2016,In Process,Yellow,"Additional Testing underway, potentially blocked due to consignment node needs.  Ran into issues with reconnects.  Moved expected completion date to end of November"
+Brent Cowing,Milestone,XProtect Corporate,Core VS Lab,Isilon,VS,4/30/2016,Not Started,Yellow," Nodes delivered, waiting on updates"
+Brent Cowing,IndigoVision,IndigoVision,Core VS Lab,Isilon,VS,4/30/2016,Not Started,Yellow," Nodes delivered, waiting on updates"
+Brent Cowing,NICE,NiceVision,Core VS Lab,Isilon,VS,2/29/2016,Not Started,Yellow," Nodes delivered, waiting on updates"
+Claudio Fahey,Cloudera,CDH,Claudio,ECS,VS,1/30/2016,Started,Yellow,ECS erros occur during HBase testing
+Claudio Fahey,Hortonworks,HDP,Claudio,ECS,VS,2/28/2016,Not Started,Red,Delays in U1500 and ScaleIO compute will push this out.
+James Corrigan,Anevia,ViaMotion Plus,James,Isilon,VS,3/31/2016,In Process,Green,Waiting on Anevia to review test plan no response from them this week. Meeting booked for next week to review test plan and validation location
+James Corrigan,Anevia,ViaMotion Streamer,James,Isilon,VS,3/31/2016,In Process,Green,Waiting on Anevia to review test plan no response from them this week. Meeting booked for next week to review test plan and validation location
+James Corrigan,Elemental,Delta,James,Isilon,CC,3/31/2016,In Process,Yellow,Initial discussions on test scope and to gauge likelihood of a validation
+James Corrigan,Elemental,Live,James,Isilon,CC,3/31/2016,In Process,Yellow,Initial discussions on test scope and to gauge likelihood of a validation
+James Corrigan,Wowza ,Streaming Engine,James,Isilon,CC,3/31/2016,In Process,Green,
+James Corrigan,SpectraLogic,BlackPearl,James,Isilon,CC,1/31/2016,In Process,Yellow,Have sent a 30 day key. Brent is trying to sort out access to Salesforce so I can generate keys. 
+Jared Knapp,Nasuni,Filer,Jared,ECS,VS,12/31/2016,Complete,Green,
+Jared Knapp,Commvault,Backup,Jared,ECS,VS,3/15/2016,In Process,Green,Lab Setup
+Mark Weiler,Meditech,SCA,Meditech/EMC (Customer POC),Isilon,CC,1/31/2016,In Process,Yellow,Meeting with Sudbury scheduled for today…need to work out permissions issues on the configuration.  Received feedback from original customer on utilization…the outcome of these two requests should allow us to wrap
+Mark Weiler,McKesson,Radiology,McKesson/EMC,Isilon,VS,1/31/2016,In Process,Yellow,Onsite meeting led to some final revisions to documentation before completion.  These will be done next week.
+Mark Weiler,Carestream,VUE,Carestream,Isilon,CC,1/30/2016,In Process,Yellow,Awaiting documentation from partner…email exchange this week promised it would come “soon”…yellow due to potential delay.  Testing is done…will consider complete when documentation is delivered.
+Mark Weiler,McKesson,Radiology,McKesson/EMC,ECS,CC,1/31/2016,Complete,Green,McKesson has completed their qualification of the CAS interface for archive.  Still need documentation generated.
+Mark Weiler,GE,CCA,eLAB,ECS,CC,2/28/2016,Not Started,Green,ECS gear has arrived in eLab…need to identify resources for configuration
+Mark Weiler,AGFA,Agiliity,eLab,Isilon,VS,3/31/2016,Not Started,Yellow,Access restored to EMC resources.  Early February we will restart efforts to bring them into eLab.  STS on Isilon is their #2 priority for validation (which will include v8.0 validation)
+Mark Weiler,Merge,iConnect,Merge,Isilon,CC,1/31/2016,Not Started,Green,Merge to test byte-range retrieval to support containerization of studies
+Mark Weiler,Philips,DPS,TBD,Isilon,VS,3/31/2016,Not Started,Green,Working out details on consignment hardware and test dates
+Pat Combes,iRODS,iRODS,ECS Cust. Eng,ECS,VS,12/25/2016,In Process,Green, Just need to compile writeup
+Pat Combes,Illumina,HiSeq Analysis Suite ,Pat Combes,Isilon,VS,1/21/2016,In Process,Red,Writeup
+Pat Combes,Broad,GATK 3,Pat Combes,Isilon,VS,1/15/2016,In Process,Yellow,Writeup pending. Testing done
+Pat Combes,Globus,Globus Genomics,Pat Combes,Isilon,VS,1/30/2016,In Process,Red," Waiting on Globus for review.(Globus contact is on leave of absence for family issues, trying to find alternative)"
+Paul McKeown,Veritas,Enterprise Valut V11,Paul,ECS,CC,2/15/2016,In Process,Red,One bug remaining in streamer driver. Dev are working on this.  Managing to start testing. 
+Paul McKeown,Veritas,Enterprise Vault V10,Paul,ECS,CC,3/15/2016,Not started,Yellow,Streamer Bug
+Paul McKeown,Veritas,Enterprise Vault V12,Paul,ECS,CC,3/15/2016,Not Started,Yellow,The Streamer Driver is not working.  Dev are working this
+Paul McKeown,Veritas,NetBU,Paul,ECS,CC,3/15/2016,Not started,Yellow,Waiting for S3 test tools from Veritas.  Still.
+Paul McKeown,Splunk,Splunk,Paul,ECS,CC,6/15/2016,Not Started,Green,
+Richard Bicknell,Kaspersky,Anti-Virus for Storage,Kaspersky,Isilon,CC,2/29/2016,In Process,Yellow,"Delayed to resolve issue, repairing files over ICAP, opening Isilon bug."
+Richard Bicknell,Sophos,SAVDI,R. Bicknell,Isilon,CC,2/29/2016,Not Started,Yellow,"May delay, if affected by issue repairing files over ICAP."
+Richard Bicknell,Trend Micro,InterScan Web Security Suite,Superna,Isilon,CC,2/29/2016,In Process,Yellow,"May delay, if affected by issue repairing files over ICAP."
+Richard Bicknell,Eset,Gateway Security,Eset,Isilon,CC,3/31/2016,Not Started,Yellow,"May delay, if affected by issue repairing files over ICAP."
+Richard Bicknell,McAfee,VirusScan Enterprise for Storage,Superna,Isilon,CC,3/31/2016,Not Started,Yellow,"May delay, if affected by issue repairing files over ICAP."
+Richard Bicknell,Symantec,Protection Engine for NAS,Symantec,Isilon,CC,3/31/2016,Not Started,Yellow,"May delay, if affected by issue repairing files over ICAP."
+Robert McNeal,SpectraLogic,BlackPearl,Isilon/Spectralogic,Isilon,CC,1/31/2016,In Process,Yellow,James C working with Spectralogic to resolve CloudPools licensing issue
+Robert McNeal,Elemental Technologies,Delta,Elemental Technologies,Isilon,CC,TBD,Not Started,Yellow,James C working on new test plan to circumvent issues with Delta test harness config
+Robert McNeal,Imagine Communications,Versio,Imagine Communications,Isilon,CC,1/31/2016,In Process,Green,Partner requires SMB3 failover.  Currently testing with OneFS.next beta build
+Robert McNeal,Marquis Broadcast,Partial File Restore,New feature development effort between ISV and ASD Eng.,ECS,CC,3/31/2016,Not Started,Green,New feature development effort between ISV and ASD Eng.
+Robert McNeal,Grass Valley,Grass Valley,Isilon,Isilon,CC,3/31/2016,Not Started,Green,Cluster expected to ship Q1 2016
+Robert McNeal,EVS,XT3,EVS,Isilon,CC,3/31/2016,Not Started,Green,Need cluster – OEM discussions progressing
+Robert McNeal,Blackmagic Design,Davinci Resolve 12,Robert McNeal,ScaleIO,CC,3/31/2016,Not Started,Green,SIO expected to land mid-January 2016
+Robert McNeal,Levels Beyond,ReachEngine MAM,Levels Beyond,ECS,CC,3/31/2016,Not Started,Green,Resume planning w/ ISV mid-jan
+Ling Wu,Microsoft,MS SQL,Superna,ScaleIO,CC,3/31/2016,In Process,Green,SOW
+Ling Wu,,,Superna,ScaleIO,CC,3/31/2016,In Process,Green,SOW
+Ling Wu,,,,ScaleIO,CC,3/31/2016,In Process,Green,SOW
+Ling Wu,Verison,CoreOS,,ScaleIO,CC,6/30/2016,In Process,Green,SOW
+Ling Wu,Intel,Lustre,Intel,Isilon,CC,6/30/2016,In Process,Green,SOW
