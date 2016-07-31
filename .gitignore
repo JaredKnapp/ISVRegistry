@@ -7,23 +7,27 @@
 *.userosscache
 *.sln.docstates
 
+
 # CakePHP 3
-/vendor/*
-/config/app.php
+/Workspace/app/tmp/cache/models
+/Workspace/app/tmp/cache/persistent
 
-/tmp/cache/models/*
-!/tmp/cache/models/empty
-/tmp/cache/persistent/*
-!/tmp/cache/persistent/empty
-/tmp/cache/views/*
-!/tmp/cache/views/empty
-/tmp/sessions/*
-!/tmp/sessions/empty
-/tmp/tests/*
-!/tmp/tests/empty
+/Workspace/app/vendor/*
+/Workspace/app/config/app.php
 
-/logs/*
-!/logs/empty
+/Workspace/app/tmp/cache/models/*
+!/Workspace/app/tmp/cache/models/empty
+/Workspace/app/tmp/cache/persistent/*
+!/Workspace/app/tmp/cache/persistent/empty
+/Workspace/app/tmp/cache/views/*
+!/Workspace/app/tmp/cache/views/empty
+/Workspace/app/tmp/sessions/*
+!/Workspace/app/tmp/sessions/empty
+/Workspace/app/tmp/tests/*
+!/Workspace/app/tmp/tests/empty
+
+/Workspace/app/logs/*
+!/Workspace/app/logs/empty
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
