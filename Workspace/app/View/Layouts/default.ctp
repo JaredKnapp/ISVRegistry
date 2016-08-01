@@ -41,6 +41,16 @@
     ?>
 </head>
 <body>
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-81661557-2', 'auto');
+        ga('send', 'pageview');
+
+    </script>
     <div id="container">
         <div id="wrapper">
             <div id="header">
@@ -52,17 +62,17 @@
                         <?php
                         if(is_array($orglist) && count($orglist) > 1) {
                         ?>
-                            <li>
-                                <select id="org_selector" style="padding:0px 0px 0px 0px" >
+                        <li>
+                            <select id="org_selector" style="padding:0px 0px 0px 0px">
                                 <?php
-                                $org = $this->Session->read('org.id');
-                                foreach($orglist as $index=>$item){
-                                    echo "<option value=$index " . ($index==$org ? 'SELECTED' : '') . ">$item</option>";
-                                }
-                                echo '<option value="0"'. ('0'==$org ? 'SELECTED' : '') . '>All</option>';
+                            $org = $this->Session->read('org.id');
+                            foreach($orglist as $index=>$item){
+                                echo "<option value=$index " . ($index==$org ? 'SELECTED' : '') . ">$item</option>";
+                            }
+                            echo '<option value="0"'. ('0'==$org ? 'SELECTED' : '') . '>All</option>';
                                 ?>
-                                </select>
-                            </li>
+                            </select>
+                        </li>
                         <?php
                         }
                         ?>

@@ -31,7 +31,8 @@ class User extends AppModel {
 				'rule' => 'notBlank',
 				'message' => 'A first name is required'
 				)
-			),'lastname' => array(
+			),
+        'lastname' => array(
 			'required' => array(
 				'rule' => 'notBlank',
 				'message' => 'A last name is required'
@@ -60,7 +61,8 @@ class User extends AppModel {
 				'message' => 'Please enter a valid role',
 				'allowEmpty' => false
 				)
-			)
+			),
+        'organization' => array('required')
 		);
 
 	public function beforeSave($options = array()) {

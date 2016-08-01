@@ -34,7 +34,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-Configure::write('debug', 2);
+Configure::write('debug', 1);
 
 /**
  * Configure the Error handler used to handle errors for your application. By default
@@ -388,7 +388,7 @@ Cache::config('_cake_model_', array(
 
 
 //ISV App - Specific settings
-Configure::write('version', '1.4.6');
+Configure::write('version', '1.6.2');
 
 Configure::write('App.Name', 'ISV Registry');
 Configure::write('App.MailFrom', 'noreply@emc.com');
