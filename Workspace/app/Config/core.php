@@ -388,7 +388,7 @@ Cache::config('_cake_model_', array(
 
 
 //ISV App - Specific settings
-Configure::write('version', '1.6.2');
+Configure::write('version', '1.7.2');
 
 Configure::write('App.Name', 'ISV Registry');
 Configure::write('App.MailFrom', 'noreply@emc.com');
@@ -399,12 +399,12 @@ Configure::write('Select.emptyOptionText', '(choose one...)');
 Configure::write('Validation.statusOptions', array(
 	'propose'=>array('label'=>'Waiting Prioritization', 'color'=>array('fore'=>'#333', 'back'=>'#cccccc', 'border'=>'#cccccc')),//black/grey/grey
 	'schedule'=>array('label'=>'Scheduled', 'color'=>array('fore'=>'#333', 'back'=>'#66ccff', 'border'=>'#66ccff')),			//black/blue/blue
-	'active'=>array('label'=>'In Progress', 'color'=>array('fore'=>'#333', 'back'=>'#66ccff', 'border'=>'#009933')),			//black/blue/green
-	'delay'=>array('label'=>'Delayed', 'color'=>array('fore'=>'#333', 'back'=>'#66ccff', 'border'=>'#ffff00')),					//black/blue/yellow
-	'alert'=>array('label'=>'Alert', 'color'=>array('fore'=>'#333', 'back'=>'#66ccff', 'border'=>'orange')),					//black/blue/orange
-	'cancel'=>array('label'=>'Cancelled', 'color'=>array('fore'=>'#ffffff', 'back'=>'#009933', 'border'=>'#000000')),			//white/green/black
+	'active'=>array('label'=>'In Progress', 'color'=>array('fore'=>'#ffffff', 'back'=>'#006699', 'border'=>'#006699')),			//black/blue/green
+	'delay'=>array('label'=>'Delayed', 'color'=>array('fore'=>'#333', 'back'=>'#ffff00', 'border'=>'#ffff00')),					//black/blue/yellow
+	'alert'=>array('label'=>'Alert', 'color'=>array('fore'=>'#333', 'back'=>'orange', 'border'=>'orange')),					//black/blue/orange
+	'cancel'=>array('label'=>'Cancelled', 'color'=>array('fore'=>'#ffffff', 'back'=>'#000000', 'border'=>'#000000')),			//white/green/black
 	'complete'=>array('label'=>'Completed','color'=>array('fore'=>'#ffffff', 'back'=>'#009933', 'border'=>'#009933')),			//white/green/green
-	'fail'=>array('label'=>'Failed', 'color'=>array('fore'=>'#ffffff', 'back'=>'#009933', 'border'=>'red'))						//white/green/red
+	'fail'=>array('label'=>'Failed', 'color'=>array('fore'=>'#ffffff', 'back'=>'red', 'border'=>'red'))						//white/green/red
 	));
 
 Configure::write('Validation.levels', array(

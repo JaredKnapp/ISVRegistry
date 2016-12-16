@@ -64,7 +64,7 @@ echo '&nbsp;'.$this->Paginator->counter('records out of {:count} total, starting
 
 <script>
 var timerid;
-var delay = 500;
+var delay = 1000;
 $('#FilterIndexForm :input').keyup(function() {
   var form = this;
   clearTimeout(timerid);

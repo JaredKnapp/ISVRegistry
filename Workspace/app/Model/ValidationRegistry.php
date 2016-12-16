@@ -179,7 +179,37 @@ class ValidationRegistry extends AppModel {
 
 				//FILTER Commands
 				if(isset($conditions) && array_key_exists('searchtext' , $conditions)){
-					$sql = $sql . " AND concat(partner,'~',product,'~', industry , '~', workload) LIKE '" . '%'.$conditions['searchtext'].'%' . "'\r\n";
+                    $join = '';
+                    $sql = $sql . ' AND (';
+
+                    $joinType = substr_count($conditions['searchtext'], '&') ? 'AND' : 'OR';
+                    $searchTextList = array_map('trim', explode(($joinType === 'OR' ? '|' : "&"), $conditions['searchtext']));
+                    foreach($searchTextList as $searchText){
+                        if(substr_count($searchText, ':')==1)
+                        {
+                            $searchSet = array_map('trim', explode(':', $searchText));
+                            $searchField = "concat(partner,'~',product,'~', industry,'~',workload)";
+                            if(strpos($searchSet[0], 'partners')!==false) $searchField = 'partner';
+                            elseif(strpos($searchSet[0], 'products')!==false) $searchField = 'product';
+                            elseif(strpos($searchSet[0], 'industry')!==false) $searchField = 'industry';
+                            elseif(strpos($searchSet[0], 'workload')!==false) $searchField = 'workload';
+
+                            if(substr($searchText, 0, 1) === '"' && substr($searchText, -1)==='"')
+                            {
+                                $sql = $sql . "$join {$searchField} = '" . substr($searchSet[1], 0, -1) . "'";
+                            }
+                            else
+                            {
+                                $sql = $sql . "$join {$searchField} LIKE '%{$searchSet[1]}%'";
+                            }
+                        }
+                        else
+                        {
+                            $sql = $sql . "$join concat(partner,'~',product,'~', industry,'~',workload) LIKE '%{$searchText}%'";
+                        }
+                        $join = " {$joinType} ";
+                    }
+					$sql = $sql . ")\r\n";
 				}
 
 				if(isset($platformWheres) && count($platformWheres) > 0 && isset($conditions) && array_key_exists('viewoptions', $conditions) && in_array('empty', $conditions['viewoptions'])){
@@ -220,5 +250,21 @@ class ValidationRegistry extends AppModel {
 	public function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
 		return count($this->paginate($conditions, null, null, null, null, $recursive, $extra));
 	}
+
+    private function _startsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
+        return (substr($haystack, 0, $length) === $needle);
+    }
+
+    private function _endsWith($haystack, $needle)
+    {
+        $length = strlen($needle);
+        if ($length == 0) {
+            return true;
+        }
+
+        return (substr($haystack, -$length) === $needle);
+    }
 
 }

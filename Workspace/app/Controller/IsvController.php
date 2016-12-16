@@ -50,7 +50,34 @@ class IsvController extends AppController {
 			$this->request->data['Filter']['show-platforms'] = $conditions['show.platforms'];
 		}
 
-		$this->set('platforms', $this->Platform->view($this->Session->read('org.id')));
+        $conditions['org'] = $this->Session->read('org.id');
+
+        $platformOverride = array();
+        if(isset($conditions['platformoptions']))
+        {
+            $conditions['show.platforms'] = array('2');
+            $list = $this->ValidationRegistry->find('filtered', array('conditions'=>$conditions));
+            foreach($list as $row)
+            {
+                foreach($row as $name=>$data)
+                {
+                    if(substr($name, 0, 1)=='T' && $data["{$name}_level"] )
+                    {
+                        $id = substr($name, 1);
+                        if(!array_key_exists($id, $platformOverride))
+                        {
+                            $platform = $this->Platform->getVersion($id);
+                            if(count($platform)>0)
+                            {
+                                //$platformOverride[$id] = $platform[0];
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+		$this->set('platforms', count($platformOverride) > 0 ? array_values($platformOverride) : $this->Platform->view($conditions['org']));
         $this->set('organizations', $this->Organization->find('list'));
         $this->set('organizations', array());
 

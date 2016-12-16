@@ -57,7 +57,7 @@ $this->Html->addCrumb($this->request->data['Product']['name']);
                 </td>
                 <td>
                     <?php
-                      echo h(isset($validation['Validation']['SaOwner']['id']) ? ($validation['Validation']['SaOwner']['firstname']. ' ' . $validation['Validation']['SaOwner']['lastname']) : 'none');
+                      echo h(isset($validation['SaOwner']['id']) ? ($validation['SaOwner']['firstname']. ' ' . $validation['SaOwner']['lastname']) : 'none');
                     ?>
                 </td>
                 <td>

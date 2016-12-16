@@ -26,7 +26,13 @@ class PartnersController extends AppController {
 
 	public function index() {
 		$this->set('title', 'All Partners');
-		$conditions = $this->Components->load('Filter')->filter($this);
+		$filter = $this->Components->load('Filter')->filter($this);
+
+        $conditions = array();
+        foreach($filter as $fieldName=>$value){
+            $conditions[$fieldName.' like'] = '%' . $value .'%';
+        }
+
 		$this->paginate = array('order' => array('name' => 'asc'));
 		$this->set('partners', $this->paginate($conditions));
 	}

@@ -4,16 +4,16 @@
     position: relative;
 }
 
-.topcorner ul{
+.topcorner ul {
     position: absolute;
     top: 10px;
     right: 10px;
 }
 
-.topcorner ul li{
-    display: inline;
-    padding-left: 20px;
-}
+    .topcorner ul li {
+        display: inline;
+        padding-left: 20px;
+    }
 
 /*START*/
 #primary_nav_wrap {
@@ -191,6 +191,7 @@
     position: absolute;
     top: 10px;
     right: 10px;
+    display: flex;
 }
 
     #exportlinks span {
@@ -229,4 +230,27 @@ a.subnavlinkactive {
     -moz-border-radius: 3px / 3px;
     -webkit-border-radius: 3px / 3px;
     border-radius: 3px;
+}
+
+#watermark {
+    /*background-color:red;*/
+    position: absolute;
+    height: 600px;
+    width: 800px;
+    top: 100px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0.10;
+    font-size: 15em;
+    text-align: center;
+    vertical-align: central;
+    -ms-transform: rotate(-45deg); /* IE9 */
+    -moz-transform: rotate(-45deg); /* FF3.5/3.6 */
+    -o-transform: rotate(-45deg); /* Opera 10.5 */
+    -webkit-transform: rotate(-45deg); /* Saf3.1+ */
+    transform: rotate(-45deg); /* Newer browsers */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    z-index: 999999;
 }

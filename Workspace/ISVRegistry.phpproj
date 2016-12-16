@@ -35,7 +35,9 @@
     <Compile Include="app\Config\acl.php" />
     <Compile Include="app\Config\bootstrap.php" />
     <Compile Include="app\Config\core.php" />
-    <Compile Include="app\Config\database.php" />
+    <Compile Include="app\Config\database.php">
+      <Publishable>False</Publishable>
+    </Compile>
     <Compile Include="app\Config\database.php.default" />
     <Compile Include="app\Config\email.php.default" />
     <Compile Include="app\Config\routes.php" />
@@ -1730,6 +1732,7 @@
     <Content Include="app\View\Settings\organization_edit.ctp" />
     <Content Include="app\View\Settings\organization_add.ctp" />
     <Content Include="app\View\Settings\organizations_index.ctp" />
+    <Content Include="app\webroot\img\watermark.png" />
     <Content Include="app\webroot\js\chosen_v1.5.1\bower.json" />
     <Content Include="app\webroot\js\chosen_v1.5.1\chosen-sprite%402x.png" />
     <Content Include="app\webroot\js\chosen_v1.5.1\chosen-sprite.png" />

@@ -29,8 +29,15 @@ class UsersController extends AppController {
     public function index() {
 		$this->set('title', 'System Users');
         $this->User->recursive = 0;
+
+        $filter = $this->Components->load('Filter')->filter($this);
+        $conditions = array();
+        if(array_key_exists('fullName', $filter)){
+            $conditions['CONCAT(firstname, \' \', lastname) like'] = '%' . $filter['fullName'].'%';
+        }
+
 		$this->paginate = array('order' => array('lastname' => 'asc', 'firstname' => 'asc'));
-        $this->set('users', $this->paginate());
+        $this->set('users', $this->paginate($conditions));
     }
 
     public function view($id = null) {

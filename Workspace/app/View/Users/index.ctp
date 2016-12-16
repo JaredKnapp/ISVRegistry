@@ -1,4 +1,11 @@
 <?php echo $this->Html->link('Add New User',array('controller' => 'Users', 'action' => 'add')); ?>
+<br />
+<?php
+$base_url = array('controller' => 'Users', 'action' => 'index');
+echo $this->Form->create("Filter",array('url' => $base_url, 'class' => 'filter'));
+echo $this->Form->text("fullName", array('placeholder' => "Search by Full Name...", 'default' => '', 'style'=>'width:250px;'));
+echo $this->Form->end();
+?>
 <table>
     <tr>
         <th>
@@ -63,3 +70,12 @@
 <?php
 echo $this->Paginator->counter('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}');
 ?>
+<script>
+var timerid;
+var delay = 1000;
+$('#FilterIndexForm :input').keyup(function() {
+  var form = this;
+  clearTimeout(timerid);
+  timerid = setTimeout(function() { $('#FilterIndexForm').submit(); }, delay);
+});
+</script>

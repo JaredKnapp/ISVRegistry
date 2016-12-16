@@ -1,7 +1,14 @@
 <?php
 $isCollapsed = true;
-if(isset($this->request['named']) && array_key_exists('collapsed', $this->request['named'])){
+if(isset($this->request['named']) && array_key_exists('collapsed', $this->request['named']))
+{
 	$isCollapsed = ( $this->request['named']['collapsed'] == 'true' );
+}
+
+$isReadOnly = false;
+if(isset($this->request['named']) && array_key_exists('ro', $this->request['named']))
+{
+    $isReadOnly = ($this->request['named']['ro'] == '1');
 }
 
 $levels= Configure::read('Validation.levels');
@@ -9,21 +16,28 @@ $statuses= Configure::read('Validation.statusOptions');
 ?>
 
 <script>
-$(function() {
-	$( "#accordion" ).accordion({
-		active: <?php echo $isCollapsed ? 'false' : 0 ?>,
-		activate: function(event, ui) {
-				$('#FilterCollapsed').val(ui.newHeader.text() ? false : true);
-			},
-		heightStyle: "content",
-		collapsible: true,
-		create: function(event, ui) { $("#accordion").show(); }
-	});
-});
+    $(function() {
+        $( "#accordion" ).accordion({
+            active: <?php echo $isCollapsed ? 'false' : 0 ?>,
+            activate: function(event, ui) {
+                $('#FilterCollapsed').val(ui.newHeader.text() ? false : true);
+            },
+            heightStyle: "content",
+            collapsible: true,
+            create: function(event, ui) { $("#accordion").show(); }
+        });
+    });
 </script>
 
 <div id="exportlinks">
-    <?php
+    <div style="text-align:center;">
+        Report Date:
+        <br />
+        <?php echo date("m/d/Y"); ?>
+    </div>
+    <div>&nbsp;&nbsp;</div>
+    <div>
+        <?php
     $linkParams = array(
         'controller'=>$this->request->params['controller'],
         'action'=>$this->request->params['action'],
@@ -39,11 +53,13 @@ $(function() {
         'alt'=>'Export to CSV',
         'url'=>$linkParams
         ));
-    ?>
+        ?>
+    </div>
 </div>
 
 <?php
 echo $this->Form->create("Filter");
+echo $this->Form->hidden('ro');
 echo $this->Form->hidden('collapsed');
 echo $this->Form->hidden('org');
 
@@ -56,8 +72,26 @@ $certifiedIconLegend = $this->Html->image('CertifiedCheckmark.png', array('heigh
 ******** VIEW FILTERS
 **************************************
 -->
-<?php echo $this->Form->text("searchtext", array('placeholder' => "Search View...", 'default' => '')); ?>
-<div id="filters">
+<?php
+if($isReadOnly)
+{
+    echo $this->Form->hidden("searchtext");
+
+    $separator = '';
+    echo '<strong>Showing statuses:</strong>&nbsp;';
+    foreach($this->request->data['Filter']['versions-status'] as $status){
+        echo $separator.'<div class="statusovalsmall" style="background-color:'.$statuses[$status]['color']['back'].'; color:'.$statuses[$status]['color']['fore'].'; border-color:'.$statuses[$status]['color']['border'].';">&nbsp;</div>&nbsp;'.$statuses[$status]['label'];
+        $separator = ',&nbsp;';
+    }
+    echo '<br />Checkmark badge '.$certifiedIconLegend.' indicates ISV Certified validations.';
+    echo '</td></tr></table>';
+}
+else
+{
+    echo $this->Form->text("searchtext", array('placeholder' => "Search View...", 'default' => ''));
+}
+?>
+<div id="filters" style="display: <?php echo $isReadOnly ? 'none' : 'inherit' ?>;">
     <div id="accordion">
         <span>
             <span>
@@ -92,10 +126,18 @@ $certifiedIconLegend = $this->Html->image('CertifiedCheckmark.png', array('heigh
                             'options'=>$options));
                         echo $this->Form->input('viewoptions', array(
                             'type'=>'select',
-                            'label'=>array('text'=>'<strong>Options</strong>', 'escape'=>false),
+                            'label'=>array('text'=>'<strong>View Options</strong>', 'escape'=>false),
                             'multiple'=>'checkbox',
                             'options'=>array('empty'=>'Exclude ISVs with no validations', 'certified'=>'Exclude uncertified validations')
                             ));
+                        //Hide EMC Platforms with no validations (hnp)
+                        echo $this->Form->input('platformoptions', array(
+                            'type'=>'select',
+                            'label'=>array('text'=>'<strong>Platform Options</strong>', 'escape'=>false),
+                            'multiple'=>'checkbox',
+                            'options'=>array('hideempty'=>'Exclude Dell EMC platforms with no validations')
+                           ));
+
                         ?>
                     </td>
                     <td width="33%">
@@ -232,7 +274,7 @@ $certifiedIconLegend = $this->Html->image('CertifiedCheckmark.png', array('heigh
                       foreach($platforms as $index=>$platform){
                           $platformindex = $platform['platformversions']['id'];
                           if(in_array($platformindex, $platformIds)){
-                              $status = in_array('T'.$platformindex, $validation) ? NULL : $validation['T'.$platformindex]['T'.$platformindex.'_status'];
+                              $status = in_array("T$platformindex", $validation) ? NULL : $validation["T$platformindex"]["T$platformindex"."_status"];
                               echo '<td style="text-align:center;vertical-align:middle;">';
                               if(is_null($status)){
 
@@ -309,18 +351,18 @@ echo '&nbsp;'.$this->Paginator->counter('records out of {:count} total, starting
 ?>
 
 <script>
-var timerid;
-var delay = 500;
+    var timerid;
+    var delay = 1500;
 
-$('#FilterSearchtext').keyup(function() {
-  var form = this;
-  clearTimeout(timerid);
-  timerid = setTimeout(function() { $('#FilterValidationRegistryForm').submit(); }, delay);
-});
+    $('#FilterSearchtext').keyup(function() {
+        var form = this;
+        clearTimeout(timerid);
+        timerid = setTimeout(function() { $('#FilterValidationRegistryForm').submit(); }, delay);
+    });
 
-$(document).ready(function() {
-    $('form:first *:input[type!=hidden]:first').focus();
-});
+    $(document).ready(function() {
+        $('form:first *:input[type!=hidden]:first').focus();
+    });
 
 </script>
 
@@ -330,12 +372,16 @@ echo $this->Form->end();
 
 <div id="dialog" title="Validation Details">
     <p>The following validations exist for this partner's product:</p>
+    <br>
+        <strong>Partner:</strong>Apache
     </br>
-    <strong>Partner:</strong> Apache</br>
-    <strong>Product:</strong> ViewDirect</br>
-    <strong>Version:</strong> 6.7</br>
+    <strong>Product:</strong>ViewDirect
+    <br>
+        <strong>Version:</strong>6.7
     </br>
-    <strong>ETD:</strong></br>
+    <br>
+        <strong>ETD:</strong>
+    </br>
     <table border="0" cellpadding="0" cellspacing="0">
         <tbody>
             <tr>
@@ -364,18 +410,19 @@ echo $this->Form->end();
             </tr>
         </tbody>
     </table>
-    <br />
-    <strong>CORE:</strong></br>
-    --none--</br>
+    <br>
+        <strong>CORE:</strong>
     </br>
+    --none--
+    <br />
 
 </div>
 <script>
-  $(function() {
-      $( "#dialog" ).dialog({autoOpen: false});
-  });
+    $(function() {
+        $( "#dialog" ).dialog({autoOpen: false});
+    });
 
-  function showDetail(){
-      $( "#dialog" ).dialog( "open" );
-  }
+    function showDetail(){
+        $( "#dialog" ).dialog( "open" );
+    }
 </script>
