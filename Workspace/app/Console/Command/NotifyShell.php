@@ -54,6 +54,9 @@ class NotifyShell extends AppShell {
             $email->from(array($appMailFrom=>$appName));
             $email->to($to);
             $email->subject($appName . ': Validation Notification');
+
+//            echo "{$notification['Notification']['id']}) Sending Email. To={$to}\n";
+
             $email->send(implode("<br />", $message));
 
             $this->Notification->id = $notification['Notification']['id'];
