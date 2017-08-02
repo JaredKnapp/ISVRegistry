@@ -388,7 +388,7 @@ Cache::config('_cake_model_', array(
 
 
 //ISV App - Specific settings
-Configure::write('version', '1.7.2');
+Configure::write('version', '1.7.3');
 
 Configure::write('App.Name', 'ISV Registry');
 Configure::write('App.MailFrom', 'noreply@emc.com');
